@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>oopjs Example</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../oop.js"></script>
+<script type="text/javascript">
+
+// instance the oopjs main class
+var oop = new OOP(this);
+
+function Animal(){
+
+	this.key = "love";
+
+}
+
+function Human(){
+
+	this.extends.class = "Animal";
+
+	this.__construct = function(name, surname){
+
+		this.name = name;
+		this.surname = surname;
+
+		console.log(this.name + " was born!");
+
+	}	
+
+	this.work = function(){
+
+		console.log(this.name + " is working noww..");
+
+	}
+
+	this.sayTheKey = function(){
+
+		console.log(this.name + "'s key is " + this.parent.key);
+
+	}
+
+	this.__destruct = function(){
+
+		console.log(this.name + " is death now!");
+
+	}
+
+}
+
+oop.make({
+	"class": "Human",
+	"arguments": ["robin", "yildiz"]
+});
+
+oop.call("work");
+
+oop.call("sayTheKey");
+
+// run the oopjs for magic "__destruct" methods
+oop.run();
+
+</script>
+</body>
+</html>
