@@ -1,4 +1,4 @@
-function OOP(t){
+function OOP(global){
 
 	/**
 	* All created class will be here with that schema: [string] className => [object] class.
@@ -28,7 +28,7 @@ function OOP(t){
 		var classKey = (config.name) ? config.name : config.class;
 
 		// if there is a [function] class 
-		if(typeof t[className] === "function"){
+		if(typeof global[className] === "function"){
 
 			// if there is a class with that key in class storage
 			if(this._classStorage[classKey]){
@@ -39,10 +39,10 @@ function OOP(t){
 
 				this._setBinder();
 
-				t[className].prototype.extends = {'arguments': []};
+				global[className].prototype.extends = {'arguments': []};
 
 				// create the [object] Class
-				var Class = new t[className]();
+				var Class = new global[className]();
 
 				if(Class.extends.class) Class.parent = this.make({'name': Class.extends.name, 'class': Class.extends.class, 'arguments': Class.extends.arguments});
 
