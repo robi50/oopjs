@@ -387,5 +387,7 @@ function OOP(global){
 
 	}
 
-
 }
+
+// make oopjs instance
+var oop = new OOP(this);
